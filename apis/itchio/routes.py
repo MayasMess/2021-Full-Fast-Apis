@@ -8,6 +8,7 @@ class ItchioRoutes(Itchio):
     def __init__(self):
         super().__init__()
 
-    @router.get("/itchio")
-    async def root(self):
-        return {"message": self.welcome_msg}
+    @router.get("/itchio/recent-uploads/{page_num}")
+    async def itchio(self, page_num: int):
+        self.retrieve_new_game_uploads(page_num=page_num)
+        return self.results
