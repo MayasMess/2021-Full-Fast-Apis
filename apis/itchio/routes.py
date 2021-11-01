@@ -9,6 +9,5 @@ class ItchioRoutes(Itchio):
         super().__init__()
 
     @router.get("/itchio/recent-uploads/{page_num}")
-    async def itchio(self, page_num: int):
-        self.retrieve_new_game_uploads(page_num=page_num)
-        return self.results
+    async def itchio(self, page_num: int) -> list:
+        return self.retrieve_new_game_uploads(page_num=page_num)
